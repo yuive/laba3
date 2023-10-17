@@ -24,3 +24,21 @@ if short_word:
     print("Самое короткое слово: ", short_word)
 else:
     print ("Файл пустой")
+
+dest = input("Введите пункт назначения: ")
+print(f"Поезда с пунктом назначения {dest}:")
+file_3 = "Вокзал.txt"
+with open(file_3,"r", encoding="utf-8") as file3:
+    for line in file3:
+        info=line.split()
+        if info[1]== dest:
+            print(" ".join(info))
+
+price = 50
+print(f"Поезда с ценой билета меньше {price}:")
+file_3 = "Вокзал.txt"
+with open(file_3,"r", encoding="utf-8") as file3:
+    for line in file3:
+        price_info=line.split()
+        if int(price_info[4]) < price:
+            print(" ".join(price_info))
