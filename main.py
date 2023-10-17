@@ -42,3 +42,21 @@ with open(file_3,"r", encoding="utf-8") as file3:
         price_info=line.split()
         if int(price_info[4]) < price:
             print(" ".join(price_info))
+
+file_4 = "Пары.txt"
+lessons = {}
+
+with open(file_4, "r", encoding="utf-8") as file4:
+    for line in file4:
+        parts = line.strip().split(": ")
+        subject = parts[0]
+        lessons_info = parts[1].split(" ")
+
+        total_lessons = 0
+        for lesson_info in lessons_info:
+            count, lesson_type = lesson_info.strip("()").split("(")
+            total_lessons += int(count)
+
+        lessons[subject] = total_lessons
+
+print(lessons)
